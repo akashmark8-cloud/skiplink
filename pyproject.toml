@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skiplink"
+version = "1.1.0"
+description = "Skip the ads, land on the real link. One-click bypass for ad-driven 'shorten-and-earn' URL shorteners - no ads, fast, honest."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.8"
+keywords = ["url-shortener", "link-bypass", "unshorten", "link-unwrapper", "shorten-and-earn", "adfly", "linkvertise", "skiplink"]
+classifiers = [
+    "Environment :: Console",
+    "Environment :: X11 Applications",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Utilities",
+]
+
+[project.urls]
+Repository = "https://github.com/akashmark8-cloud/skiplink"
+Issues = "https://github.com/akashmark8-cloud/skiplink/issues"
+
+[project.optional-dependencies]
+browser = ["playwright>=1.40"]
+gui = ["tk"]
+
+[project.scripts]
+skiplink = "skiplink.cli:main"
+
+[tool.setuptools]
+packages = ["skiplink"]
+
+[tool.setuptools.package-data]
+skiplink = ["data/*.txt"]

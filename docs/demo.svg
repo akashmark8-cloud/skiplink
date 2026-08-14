@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="820" viewBox="0 0 1024 820" font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10b981"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f8fafc"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1024" height="820" fill="url(#bg)"/>
+
+  <!-- Header -->
+  <text x="512" y="62" text-anchor="middle" font-size="46" font-weight="800" fill="#ffffff">SkipLink</text>
+  <text x="512" y="96" text-anchor="middle" font-size="19" fill="#94a3b8">Skip the ads. Land on the real link.</text>
+  <line x1="512" y1="116" x2="512" y2="128" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Input card -->
+  <rect x="120" y="160" width="784" height="86" rx="14" fill="url(#card)" filter="url(#shadow)"/>
+  <text x="512" y="196" text-anchor="middle" font-size="15" fill="#64748b" font-weight="600">1 · PASTE YOUR SHORT / AD LINK</text>
+  <rect x="220" y="206" width="584" height="26" rx="8" fill="#f1f5f9"/>
+  <text x="512" y="224" text-anchor="middle" font-size="15" fill="#334155">https://earn4link.in/FLf1Y1</text>
+
+  <!-- Arrow -->
+  <path d="M512 262 L512 300" stroke="#64748b" stroke-width="3" stroke-dasharray="6 6"/>
+  <path d="M503 292 L512 308 L521 292" fill="#64748b"/>
+
+  <!-- Engine card -->
+  <rect x="120" y="316" width="784" height="196" rx="14" fill="url(#card)" filter="url(#shadow)"/>
+  <text x="512" y="352" text-anchor="middle" font-size="15" fill="#64748b" font-weight="600">2 · SKIPLINK ENGINE — ONE CLICK, ZERO ADS</text>
+  <g font-size="14.5">
+    <rect x="160" y="372" width="360" height="30" rx="7" fill="#ecfdf5" stroke="#d1fae5"/>
+    <circle cx="184" cy="387" r="6" fill="#10b981"/>
+    <text x="202" y="392" fill="#065f46">Follow HTTP redirect chains</text>
+    <rect x="160" y="410" width="360" height="30" rx="7" fill="#ecfdf5" stroke="#d1fae5"/>
+    <circle cx="184" cy="425" r="6" fill="#10b981"/>
+    <text x="202" y="430" fill="#065f46">Decode interstitials (meta, atob, var, JSON)</text>
+    <rect x="160" y="448" width="360" height="30" rx="7" fill="#ecfdf5" stroke="#d1fae5"/>
+    <circle cx="184" cy="463" r="6" fill="#10b981"/>
+    <text x="202" y="468" fill="#065f46">Skip countdowns, popups &amp; "get link" buttons</text>
+    <rect x="544" y="372" width="344" height="30" rx="7" fill="#fef3c7" stroke="#fde68a"/>
+    <circle cx="568" cy="387" r="6" fill="#f59e0b"/>
+    <text x="586" y="392" fill="#92400e">Detect reCAPTCHA &amp; safelink gates</text>
+    <rect x="544" y="410" width="344" height="30" rx="7" fill="#fef3c7" stroke="#fde68a"/>
+    <circle cx="568" cy="425" r="6" fill="#f59e0b"/>
+    <text x="586" y="430" fill="#92400e">Flag ad-farm "money pages" honestly</text>
+    <rect x="544" y="448" width="344" height="30" rx="7" fill="#eff6ff" stroke="#dbeafe"/>
+    <circle cx="568" cy="463" r="6" fill="#3b82f6"/>
+    <text x="586" y="468" fill="#1e40af">Optional real-browser mode (Playwright)</text>
+  </g>
+  <rect x="160" y="472" width="728" height="1" fill="#e2e8f0"/>
+
+  <!-- Result banner -->
+  <rect x="120" y="478" width="784" height="30" rx="7" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="512" y="498" text-anchor="middle" font-size="14" fill="#166534" font-weight="700">✓ Captcha-gated money page detected — reported honestly, no fake link</text>
+
+  <!-- Arrow -->
+  <path d="M512 528 L512 566" stroke="#64748b" stroke-width="3" stroke-dasharray="6 6"/>
+  <path d="M503 558 L512 574 L521 558" fill="#64748b"/>
+
+  <!-- Output card -->
+  <rect x="120" y="582" width="784" height="150" rx="14" fill="url(#card)" filter="url(#shadow)"/>
+  <text x="512" y="616" text-anchor="middle" font-size="15" fill="#64748b" font-weight="600">3 · THE REAL LINK (OR THE HONEST TRUTH)</text>
+
+  <!-- Terminal mock -->
+  <rect x="160" y="634" width="704" height="82" rx="10" fill="#0b1220"/>
+  <circle cx="184" cy="652" r="6" fill="#f87171"/>
+  <circle cx="202" cy="652" r="6" fill="#fbbf24"/>
+  <circle cx="220" cy="652" r="6" fill="#34d399"/>
+  <g font-family="'JetBrains Mono', 'Consolas', monospace" font-size="12.5">
+    <text x="160" y="682" fill="#a5b4fc">$ skiplink https://earn4link.in/FLf1Y1</text>
+    <text x="160" y="700" fill="#34d399">FINAL: https://blog.gangstarnewyorkapk.com/</text>
+    <text x="160" y="708" fill="#fbbf24" font-weight="700">NOTE:  Captcha-gated (reCAPTCHA) - cannot auto-bypass.</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="512" y="796" text-anchor="middle" font-size="13" fill="#64748b">MIT License · Python 3 · stdlib-only · 1,537 shortener domains bundled · CLI + GUI</text>
+</svg>

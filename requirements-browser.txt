@@ -1,0 +1,2 @@
+# Optional: real-browser resolution for JS-gated shorteners.
+playwright>=1.40

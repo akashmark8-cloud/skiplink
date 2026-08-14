@@ -1,0 +1,6 @@
+# skiplink uses ONLY the Python standard library - no pip installs needed.
+# (Optional) Tkinter ships with most Python installs on Linux/Windows/macOS.
+
+# Optional extra for browser mode (JS countdowns / safelink gates):
+#   pip install -r requirements-browser.txt
+#   playwright install chromium
