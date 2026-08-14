@@ -9,6 +9,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: true
+
 defaults:
   run:
     shell: bash
@@ -22,10 +26,6 @@ jobs:
         include:
           - os: ubuntu-latest
             os_name: linux-x64
-          - os: macos-13
-            os_name: macos-x64
-          - os: macos-14
-            os_name: macos-arm64
           - os: windows-latest
             os_name: windows-x64
     runs-on: ${{ matrix.os }}

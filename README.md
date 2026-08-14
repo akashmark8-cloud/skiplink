@@ -44,13 +44,12 @@ Grab the ready-made executables from the
 | --- | --- | --- |
 | Windows | `skiplink-gui.exe` | double-click for the app |
 | Windows | `skiplink.exe` | command line |
-| macOS (Intel) | `skiplink-gui` | built on `macos-13` |
-| macOS (Apple Silicon) | `skiplink-gui` | built on `macos-14` |
 | Linux | `skiplink-gui` | double-click, or run from a terminal |
 | Linux | `skiplink` | command line |
 
-> macOS: the binaries are unsigned (no Apple Developer account), so the first
-> launch needs **right-click → Open**, then confirm. Every build is produced
+> macOS: build support can be re-enabled (see `.github/workflows/build.yml`),
+> but the binaries are unsigned (no Apple Developer account), so the first
+> launch would need **right-click → Open**. Every build is produced
 > automatically by GitHub Actions from the source on every `v*` tag.
 
 ### From source
