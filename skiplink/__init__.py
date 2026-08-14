@@ -5,7 +5,7 @@ destination without loading any ads - and honestly reports the walls it
 cannot climb (reCAPTCHA, safelink gates, ad-farm money pages).
 """
 
-__version__ = "1.1.0"
+__version__ = "1.2.0"
 
 from .core import (
     detect_protection,

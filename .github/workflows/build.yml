@@ -1,0 +1,89 @@
+name: Build & Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build (${{ matrix.os_name }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            os_name: linux-x64
+          - os: macos-13
+            os_name: macos-x64
+          - os: macos-14
+            os_name: macos-arm64
+          - os: windows-latest
+            os_name: windows-x64
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python (macOS / Windows)
+        if: runner.os != 'Linux'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Set up Python + Tkinter (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3 python3-tk python3-pip python3-venv
+
+      - name: Install PyInstaller
+        run: |
+          if command -v python >/dev/null 2>&1; then PY="python"; else PY="python3"; fi
+          echo "PY=$PY" >> "$GITHUB_ENV"
+          $PY -m pip install --break-system-packages pyinstaller
+
+      - name: Run unit tests
+        run: $PY -m unittest discover -s tests
+
+      - name: Build executables (CLI + GUI)
+        shell: bash
+        run: |
+          SEP=":"
+          if [ "$RUNNER_OS" = "Windows" ]; then SEP=";"; fi
+          ADD_DATA="skiplink/data/shortener_domains.txt${SEP}skiplink/data"
+          $PY -m PyInstaller --noconfirm --onefile \
+            --name skiplink --add-data "$ADD_DATA" --hidden-import tkinter launcher.py
+          $PY -m PyInstaller --noconfirm --onefile --windowed \
+            --name skiplink-gui --add-data "$ADD_DATA" --hidden-import tkinter launcher.py
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: skiplink-${{ matrix.os_name }}
+          path: dist/*
+          if-no-files-found: error
+
+  release:
+    name: Publish GitHub Release
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: skiplink-*
+          path: release-assets
+          merge-multiple: true
+
+      - name: Inspect assets
+        run: ls -la release-assets
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: release-assets/*
+          fail_on_unmatched_files: true

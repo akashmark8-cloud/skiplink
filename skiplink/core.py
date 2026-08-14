@@ -20,6 +20,7 @@ import html as html_mod
 import json
 import os
 import re
+import sys
 import zlib
 from http.cookiejar import CookieJar
 from urllib.parse import urljoin, unquote, urlparse
@@ -124,7 +125,11 @@ _ASSET_SUFFIXES = (
     ".css", ".js", ".woff", ".woff2", ".ttf", ".mp4", ".webm",
 )
 
-_DATA_PATH = os.path.join(os.path.dirname(__file__), "data", "shortener_domains.txt")
+_DATA_PATH = os.path.join(
+    getattr(sys, "_MEIPASS", None) or os.path.dirname(__file__),
+    "data",
+    "shortener_domains.txt",
+)
 _KNOWN_DOMAINS = None
 
 

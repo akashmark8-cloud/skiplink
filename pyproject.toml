@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "skiplink"
-version = "1.1.0"
+version = "1.2.0"
 description = "Skip the ads, land on the real link. One-click bypass for ad-driven 'shorten-and-earn' URL shorteners - no ads, fast, honest."
 readme = "README.md"
 license = { text = "MIT" }

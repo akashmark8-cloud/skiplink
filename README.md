@@ -35,6 +35,26 @@ clicks, no fake pages**.
 
 ## Install
 
+### Prebuilt app (Windows / macOS / Linux)
+
+Grab the ready-made executables from the
+[Releases page](https://github.com/akashmark8-cloud/skiplink/releases):
+
+| Platform | File | Notes |
+| --- | --- | --- |
+| Windows | `skiplink-gui.exe` | double-click for the app |
+| Windows | `skiplink.exe` | command line |
+| macOS (Intel) | `skiplink-gui` | built on `macos-13` |
+| macOS (Apple Silicon) | `skiplink-gui` | built on `macos-14` |
+| Linux | `skiplink-gui` | double-click, or run from a terminal |
+| Linux | `skiplink` | command line |
+
+> macOS: the binaries are unsigned (no Apple Developer account), so the first
+> launch needs **right-click → Open**, then confirm. Every build is produced
+> automatically by GitHub Actions from the source on every `v*` tag.
+
+### From source
+
 ```bash
 git clone https://github.com/akashmark8-cloud/skiplink.git
 cd skiplink
@@ -159,6 +179,8 @@ if result["note"]:
 skiplink/
 ├── main.py               # CLI entry point
 ├── gui.py                # run the one-click GUI directly
+├── launcher.py           # PyInstaller entry point (GUI / CLI in one binary)
+├── .github/workflows/build.yml  # builds Windows/macOS/Linux binaries per tag
 ├── skiplink/
 │   ├── __init__.py
 │   ├── cli.py            # command line interface
@@ -184,6 +206,23 @@ python -m unittest discover -s tests -v
 ```
 
 The tests spin up a local HTTP server, so they run offline.
+
+## Building the app yourself
+
+The released executables are built with [PyInstaller](https://pyinstaller.org/)
+by GitHub Actions (see `.github/workflows/build.yml`) — no cross-compiling
+needed: each OS builds its own native binary. Locally you can do the same:
+
+```bash
+pip install pyinstaller
+pyinstaller --onefile --windowed --name skiplink-gui \
+  --add-data "skiplink/data/shortener_domains.txt:skiplink/data" launcher.py
+```
+
+- `launcher.py` is a single entry point: no arguments opens the GUI, URL
+  arguments run the CLI.
+- To create a new release, push a tag: `git tag v1.2.0 && git push origin v1.2.0`
+  — the workflow builds for all four platforms and attaches them to the Release.
 
 ## License
 
