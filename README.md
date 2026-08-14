@@ -6,6 +6,8 @@
 
 **Skip the ads. Land on the real link.**
 
+[![Sponsor](https://img.shields.io/badge/Sponsor%20on%20GitHub-6f42c1?logo=github&logoColor=white)](https://github.com/sponsors/akashmark8-cloud)
+
 SkipLink is a one-click bypass for ad-driven **"shorten-and-earn"** URL
 shorteners (adf.ly, shorte.st, linkvertise, shrinkearn, clk.sh, fc.lc,
 earn4link.in, and thousands more). Paste a short link, hit **Bypass**, and
